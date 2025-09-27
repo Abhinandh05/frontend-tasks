@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function SessionTable() {
     return (
         <div className="flex justify-center items-center p-8">
-            <div className="w-[1080px] h-200px border border-[#E2E4E9] rounded-2xl bg-white mx-auto pb-[17px]">
+            <div className="w-[1080px]  border border-[#E2E4E9] rounded-2xl bg-white mx-auto pb-[17px]">
                 <table className="w-full border-collapse">
                     <thead>
                     <tr className="text-left bg-nutral-100 font-normal text-sm leading-5 tracking-[-0.006em]">
@@ -67,17 +67,18 @@ export default function SessionTable() {
                             </td>
 
 
-                            <td className="py-4 pr-6 pl-4">
+                            <td className="py-4 pr-6 pl-4 flex justify-end mr-3">
                                 {session.status === "Pending" ? (
-                                    <button className="bg-blue-100 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-500 transition-colors">
+                                    <button className="bg-blue-100 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-500 transition-colors min-w-[120px]">
                                         Start Recording
                                     </button>
                                 ) : (
-                                    <button className="bg-gray-200 text-blue-100 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors border border-gray-200">
+                                    <button className="bg-gray-200 text-blue-100 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors border border-gray-200 min-w-[140px]">
                                         View
                                     </button>
                                 )}
                             </td>
+
                         </tr>
                     ))}
                     </tbody>
