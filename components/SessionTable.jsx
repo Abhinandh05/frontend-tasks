@@ -69,11 +69,11 @@ export default function SessionTable() {
 
                             <td className="py-4 pr-6 pl-4 flex justify-end mr-3">
                                 {session.status === "Pending" ? (
-                                    <button className="bg-blue-100 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-500 transition-colors min-w-[120px]">
+                                    <button className="bg-blue-100 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-500 transition-colors min-w-[120px] cursor-pointer">
                                         Start Recording
                                     </button>
                                 ) : (
-                                    <button className="bg-gray-200 text-blue-100 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors border border-gray-200 min-w-[140px]">
+                                    <button className="bg-gray-200 text-blue-100 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors border border-gray-200 min-w-[140px] cursor-pointer">
                                         View
                                     </button>
                                 )}
