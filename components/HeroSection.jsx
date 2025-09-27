@@ -1,6 +1,7 @@
 import React from 'react'
 import {Calendar, Search} from "lucide-react";
 import {MdFilterList} from "react-icons/md";
+import SessionTable from "@/components/SessionTable";
 
 export const HeroSection = () => {
     return (
@@ -39,8 +40,10 @@ export const HeroSection = () => {
 
             </div>
 
-            {/* Sessions Table */}
-            {/* <SessionsTable data={sessions} /> */}
+
+
+
+
         </div>
     )
 }
