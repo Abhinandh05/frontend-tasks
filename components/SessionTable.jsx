@@ -42,7 +42,7 @@ export default function SessionTable() {
 
                                     <div>
                                         <p className="font-medium text-black mb-1">{session.title}</p>
-                                        <p className="text-gray-400 text-xs">{session.date}</p>
+                                        <p className="text-gray-100 text-xs">{session.date}</p>
                                     </div>
                                 </div>
                             </td>

@@ -8,7 +8,7 @@ const Header = () => {
 
             <div className="max-w-[1440px] mx-auto flex items-center justify-between px-[200px] pt-[16.56px] pb-[16.56px] gap-[12.42px]">
 
-                <div className="flex items-center">
+                <div className="flex items-center -ml-15">
                     <Image
                         src="/navbar.png"
                         alt="EventHex Logo"
