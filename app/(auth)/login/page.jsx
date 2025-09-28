@@ -1,8 +1,30 @@
 'use client';
 
 import Image from 'next/image';
+import { Manrope } from "next/font/google";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+const manrope = Manrope({ subsets: ["latin"] });
 
 export default function Home() {
+    const [avCode, setAvCode] = useState('');
+    const [error, setError] = useState('');
+    const router = useRouter();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if (avCode === '1234') {
+            // Store authentication state in localStorage
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('userCode', avCode);
+            // Successful login - redirect to main page
+            router.push('/');
+        } else {
+            setError('Invalid AV Code. Please try again.');
+        }
+    };
     return (
         <div className="min-h-screen flex flex-col lg:flex-row">
             {/* Left Column - Promotional Section */}
@@ -32,7 +54,7 @@ export default function Home() {
 
                     {/* Headline */}
                     <div className="mb-6">
-                        <h2 className="text-[10px] lg:text-5xl font-bold leading-tight">
+                        <h2 className={`text-4xl lg:text-[62px] font-bold leading-tight ${manrope.className}`}>
                             <span>Engage, Inspire</span>
                             <span className="block">Inform With Ai</span>
 
@@ -40,7 +62,7 @@ export default function Home() {
                     </div>
 
                     {/* Sub-headline */}
-                    <p className="text-5xl lg:text-xl text-white">
+                    <p className={`text-2xl lg:text-[51px] text-white ${manrope.className}`}>
                         AI-Based Real-Time <br/> Content Summarisation
                     </p>
                 </div>
@@ -62,7 +84,7 @@ export default function Home() {
                     </div>
 
                     {/* Form */}
-                    <form className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             <label
                                 htmlFor="avCode"
@@ -73,9 +95,14 @@ export default function Home() {
                             <input
                                 type="text"
                                 id="avCode"
+                                value={avCode}
+                                onChange={(e) => setAvCode(e.target.value)}
                                 placeholder="Enter AV Code"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-base"
+                                className="w-full px-4 py-3 border border-[#D4D7E3] rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-base"
                             />
+                            {error && (
+                                <p className="text-red-500 text-sm mt-2">{error}</p>
+                            )}
                         </div>
 
                         <button
