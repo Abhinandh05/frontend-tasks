@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import Header from "@/components/Header";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     return (
         <main className="min-h-screen flex flex-col">
             <Header />
@@ -9,7 +9,7 @@ const Layout = ({children}) => {
                 {children}
             </div>
         </main>
+    );
+};
 
-    )
-}
-export default Layout
+export default Layout;

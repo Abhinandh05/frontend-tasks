@@ -5,10 +5,12 @@ import SessionTable from "@/components/SessionTable";
 
 const Home = () => {
     return (
-        <main className="min-h-screen p-8 bg-white">
-           <HeroSection />
+        <main className="min-h-screen bg-white mt-10">
+            <HeroSection />
             <SessionTable />
         </main>
+
+
 
 
     )
