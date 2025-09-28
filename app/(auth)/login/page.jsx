@@ -23,28 +23,25 @@ export default function Home() {
                     {/* Logo */}
                     <div className="mb-6 lg:mb-8">
                         <div className="flex items-center">
-                            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-3">
-                                <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
+                            <div className=" rounded-full flex items-center justify-center mr-3">
+                                <Image src='/EventHex-Logo.svg' alt='navbar' width={200} height={200} />
                             </div>
-                            <h1 className="text-2xl font-bold">EventHex</h1>
+
                         </div>
                     </div>
 
                     {/* Headline */}
                     <div className="mb-6">
-                        <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-                            <span className="block">Engage,</span>
-                            <span className="block">Inspire</span>
-                            <span className="block">Inform</span>
-                            <span className="block">With Ai</span>
+                        <h2 className="text-[10px] lg:text-5xl font-bold leading-tight">
+                            <span>Engage, Inspire</span>
+                            <span className="block">Inform With Ai</span>
+
                         </h2>
                     </div>
 
                     {/* Sub-headline */}
-                    <p className="text-lg lg:text-xl text-blue-100">
-                        AI-Based Real-Time Content Summarisation
+                    <p className="text-5xl lg:text-xl text-white">
+                        AI-Based Real-Time <br/> Content Summarisation
                     </p>
                 </div>
             </div>
