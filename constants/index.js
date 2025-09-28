@@ -48,5 +48,13 @@ const sessions = [
         status: "Pending",
     },
 ];
+export const waveVectors = [
+    "/Vector1.png",
+    "/Vector2.png",
+    "/Vector3.png",
+    "/Vector4.png",
+    "/Vector5.png",
+    "/Vector6.png",
+];
 
 export default sessions;
