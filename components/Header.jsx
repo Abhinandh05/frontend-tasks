@@ -1,8 +1,22 @@
-import React from 'react'
-import {Globe} from "lucide-react";
+'use client'
+import React, {useEffect} from 'react'
+import {Globe, LogOut} from "lucide-react";
 import Image from "next/image";
+import {useRouter} from "next/navigation";
 
 const Header = () => {
+    const router = useRouter();
+    useEffect(() => {
+        const loggedIn = localStorage.getItem("loggedIn");
+        if (loggedIn !== "true") {
+            router.push("/login"); // redirect if not logged in
+        }
+    }, [router]);
+
+    const handleLogout = () => {
+        localStorage.removeItem("loggedIn");
+        router.push("/login");
+    };
     return (
         <header className="w-full border-b-[1.04px] border-gray-200">
 
@@ -19,10 +33,19 @@ const Header = () => {
                 </div>
 
 
+
                 <button className="text-gray-600 hover:text-gray-900 cursor-pointer">
                     <Globe className="w-5 h-5" />
                 </button>
+
             </div>
+            <button
+                onClick={handleLogout}
+                className="p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md group"
+                title="Logout"
+            >
+                <LogOut size={20} />
+            </button>
         </header>
 
 

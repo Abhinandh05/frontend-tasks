@@ -1,9 +1,13 @@
 'use client';
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import { Calendar, Search, X } from "lucide-react";
 import { MdFilterList } from "react-icons/md";
+import {useRouter} from "next/navigation";
 
 export const HeroSection = () => {
+    const router = useRouter();
+
+
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchValue, setSearchValue] = useState('');
 

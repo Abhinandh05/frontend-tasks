@@ -11,7 +11,7 @@ const Page =  async ({ params }) => {
     }
 
     return (
-        <div className="p-6 -mt-5">
+        <div className="p-6 -mt-5 mr-25">
             <div className="w-[776px] flex flex-col gap-4 mx-auto">
                 <div className="flex justify-between items-center">
                     <div className="flex flex-col gap-[6px]">

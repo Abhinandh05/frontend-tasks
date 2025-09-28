@@ -4,13 +4,14 @@ import { PiWaveformBold } from "react-icons/pi";
 import { IoPlaySharp, IoPauseSharp } from "react-icons/io5";
 import { waveVectors } from "@/constants";
 import { useState, useEffect } from "react";
+import {useRouter} from "next/navigation";
+
 
 const LiveSection = () => {
     const [isRecording, setIsRecording] = useState(false);
     const [isSoundChecking, setIsSoundChecking] = useState(false);
     const [time, setTime] = useState(0);
-
-
+    const router = useRouter();
     useEffect(() => {
         let interval;
         if (isRecording) {
@@ -110,7 +111,9 @@ const LiveSection = () => {
 
 
             <div className="mt-6 flex flex-row gap-4">
-                <button className="flex items-center justify-center gap-2 px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-gray-200 text-blue-100 font-medium text-sm hover:bg-blue-50">
+                <button className="flex items-center justify-center gap-2 px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-gray-200 text-blue-100 font-medium text-sm hover:bg-blue-50"
+                onClick={() => router.push('/')}
+                >
                     ✖ Leave Section
                 </button>
 
