@@ -1,6 +1,7 @@
 // app/layout.js
 import "./globals.css";
 import { Inter, Manrope } from "next/font/google";
+import ToastContainer from "@/components/ToastContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 const manrope = Manrope({ subsets: ["latin"] });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       */}
         <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         {children}
+        <ToastContainer />
         </body>
         </html>
     );

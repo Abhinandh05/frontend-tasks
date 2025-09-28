@@ -37,15 +37,14 @@ const LiveSection = () => {
 
     const handleGoLiveToggle = () => {
         if (isSoundChecking) {
-
+            // If sound checking, just stop sound check - don't start recording
             setIsSoundChecking(false);
-            setIsRecording(true);
         } else if (isRecording) {
-
+            // If recording, stop recording and reset time
             setIsRecording(false);
             setTime(0);
         } else {
-
+            // If neither sound checking nor recording, start recording
             setIsRecording(true);
         }
     };

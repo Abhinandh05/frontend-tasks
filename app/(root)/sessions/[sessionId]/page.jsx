@@ -3,8 +3,9 @@ import {MdOutlineTranslate} from "react-icons/md";
 import LanguageSelector from "@/components/LanguageSelector";
 import LiveSection from "@/components/LiveSection";
 
-const Page =  async ({ params }) => {
-    const session = await sessions.find((s) => s.id === Number(params.sessionId));
+const Page = async ({ params }) => {
+    const resolvedParams = await params;
+    const session = sessions.find((s) => s.id === Number(resolvedParams.sessionId));
 
     if (!session) {
         return <div className="p-6">Session not found</div>;

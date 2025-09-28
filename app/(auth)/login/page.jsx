@@ -25,8 +25,16 @@ export default function Home() {
             // Store authentication state in localStorage
             localStorage.setItem('loggedIn', 'true');
             localStorage.setItem('userCode', avCode);
-            // Successful login - redirect to main page
-            router.push('/');
+            
+            // Show success toast
+            if (typeof window !== 'undefined' && window.showToast) {
+                window.showToast('Login Successful!', 'success', 2000);
+            }
+            
+            // Wait a moment to show toast, then redirect
+            setTimeout(() => {
+                router.push('/');
+            }, 1500);
         } else {
             setError('Invalid AV Code. Please try again.');
             setIsLoading(false);
