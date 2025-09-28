@@ -11,16 +11,18 @@ const LiveSection = () => {
     const [isRecording, setIsRecording] = useState(false);
     const [isSoundChecking, setIsSoundChecking] = useState(false);
     const [time, setTime] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
     const router = useRouter();
+
     useEffect(() => {
         let interval;
-        if (isRecording) {
+        if (isRecording && !isPaused) {
             interval = setInterval(() => {
                 setTime((prev) => prev + 1);
             }, 1000);
         }
         return () => clearInterval(interval);
-    }, [isRecording]);
+    }, [isRecording, isPaused]);
 
 
     const formatTime = (secs) => {
@@ -33,25 +35,33 @@ const LiveSection = () => {
     const handleSoundCheck = () => {
         setIsSoundChecking(true);
         setIsRecording(false);
+        setIsPaused(false);
     };
 
     const handleGoLiveToggle = () => {
         if (isSoundChecking) {
-            // If sound checking, just stop sound check - don't start recording
+            // If sound checking, stop sound check
             setIsSoundChecking(false);
         } else if (isRecording) {
-            // If recording, stop recording and reset time
-            setIsRecording(false);
-            setTime(0);
+            // If recording, toggle pause state
+            setIsPaused(!isPaused);
         } else {
-            // If neither sound checking nor recording, start recording
+            // If not recording, start recording
             setIsRecording(true);
+            setIsPaused(false);
+            setTime(0);
         }
     };
 
+    const handleStopRecording = () => {
+        setIsRecording(false);
+        setIsPaused(false);
+        setTime(0);
+    };
+
     return (
-        <div className="w-full flex flex-col items-center">
-            <div className="w-full h-[450px] relative flex flex-col items-center justify-center bg-gradient-to-r from-[#C2D6FF] to-white rounded-3xl border border-[#E2E4E9] overflow-hidden">
+        <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-4xl h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] relative flex flex-col items-center justify-center bg-gradient-to-r from-[#C2D6FF] to-white rounded-3xl border border-[#E2E4E9] overflow-hidden">
 
                 {waveVectors.map((src, index) => (
                     <div
@@ -69,10 +79,10 @@ const LiveSection = () => {
                     </div>
                 ))}
 
-
-                <div className="w-36 h-36 rounded-full bg-[#FFFFFF80] flex items-center justify-center z-10">
-                    <div className="w-28 h-28 rounded-full bg-[#EFECFF] flex items-center justify-center">
-                        <div className="w-20 h-20 relative">
+                {/* Center Avatar - Responsive sizing */}
+                <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full bg-[#FFFFFF80] flex items-center justify-center z-10">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-26 md:h-26 lg:w-28 lg:h-28 rounded-full bg-[#EFECFF] flex items-center justify-center">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 relative">
                             <Image
                                 src="/dp.svg"
                                 alt="Logo"
@@ -83,42 +93,48 @@ const LiveSection = () => {
                     </div>
                 </div>
 
-
+                {/* Sound Check Text - Responsive positioning and sizing */}
                 {isSoundChecking && (
-                    <div className="absolute z-20 flex items-center justify-center w-[602px] h-[38px] left-1/2 -translate-x-1/2 transform bottom-16">
-                        <div className="w-full h-full flex items-center justify-start rounded-lg px-4">
-                            <p className="font-sans font-medium text-xl leading-7 tracking-normal text-left bg-gradient-to-r from-[#375DFB] to-[#DFE3EC] bg-clip-text text-transparent">
+                    <div className="absolute z-20 flex items-center justify-center w-[90%] sm:w-[80%] md:w-[70%] lg:w-[602px] h-[38px] left-1/2 -translate-x-1/2 transform bottom-8 sm:bottom-12 md:bottom-14 lg:bottom-16">
+                        <div className="w-full h-full flex items-center justify-start rounded-lg px-2 sm:px-3 md:px-4">
+                            <p className="font-sans font-medium text-sm sm:text-base md:text-lg lg:text-xl leading-5 sm:leading-6 md:leading-7 tracking-normal text-center sm:text-left bg-gradient-to-r from-[#375DFB] to-[#DFE3EC] bg-clip-text text-transparent">
                                 EventHex Stands out by tackling two key ...
                             </p>
                         </div>
                     </div>
                 )}
 
-
+                {/* Recording Status and Timer - Responsive positioning */}
                 {!isSoundChecking && (
-                    <div className="absolute bottom-5 z-10 flex items-center gap-3">
-                        {isRecording && (
+                    <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 z-10 flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+                        {isRecording && !isPaused && (
                             <div className="flex items-center gap-1">
                                 <span className="w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
-                                <p className="text-red-500 font-medium text-sm">Recording</p>
+                                <p className="text-red-500 font-medium text-xs sm:text-sm">Recording</p>
                             </div>
                         )}
-                        <p className="text-black-100 text-xl font-mono">{formatTime(time)}</p>
+                        {isRecording && isPaused && (
+                            <div className="flex items-center gap-1">
+                                <span className="w-3 h-3 rounded-full bg-orange-500"></span>
+                                <p className="text-orange-500 font-medium text-xs sm:text-sm">Paused</p>
+                            </div>
+                        )}
+                        <p className="text-black-100 text-lg sm:text-xl font-mono">{formatTime(time)}</p>
                     </div>
                 )}
             </div>
 
-
-            <div className="mt-6 flex flex-row gap-4">
-                <button className="flex items-center justify-center gap-2 px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-gray-200 text-blue-100 font-medium text-sm hover:bg-blue-50"
-                onClick={() => router.push('/')}
+            {/* Control Buttons - Responsive layout and sizing */}
+            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+                <button className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-gray-200 text-blue-100 font-medium text-xs sm:text-sm hover:bg-blue-50 w-full sm:w-auto"
+                        onClick={() => router.push('/')}
                 >
                     ✖ Leave Section
                 </button>
 
                 <button
                     onClick={handleSoundCheck}
-                    className="flex items-center justify-center gap-2 px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-blue-100 text-white font-medium text-sm hover:bg-blue-500 transition-all duration-300"
+                    className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-blue-100 text-white font-medium text-xs sm:text-sm hover:bg-blue-500 transition-all duration-300 w-full sm:w-auto"
                 >
                     <PiWaveformBold />
                     Sound Check
@@ -126,13 +142,41 @@ const LiveSection = () => {
 
                 <button
                     onClick={handleGoLiveToggle}
-                    className="flex items-center justify-center gap-2 px-4 py-2 border border-[#C2D6FF] rounded-[17px] font-medium text-sm min-w-[140px] transition-all duration-300 bg-red-100 text-white hover:bg-red-500"
+                    className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 border border-[#C2D6FF] rounded-[17px] font-medium text-xs sm:text-sm min-w-[120px] sm:min-w-[140px] transition-all duration-300 bg-red-100 text-white hover:bg-red-500 w-full sm:w-auto"
                 >
-                    {(isSoundChecking || isRecording) ? <IoPauseSharp /> : <IoPlaySharp />}
-                    {(isSoundChecking || isRecording) ? "Pause" : "Go Live"}
+                    {isSoundChecking ? (
+                        <>
+                            <IoPauseSharp />
+                            Stop Check
+                        </>
+                    ) : isRecording && !isPaused ? (
+                        <>
+                            <IoPauseSharp />
+                            Pause
+                        </>
+                    ) : isRecording && isPaused ? (
+                        <>
+                            <IoPlaySharp />
+                            Resume
+                        </>
+                    ) : (
+                        <>
+                            <IoPlaySharp />
+                            Go Live
+                        </>
+                    )}
                 </button>
-            </div>
 
+                {/* Optional: Add a separate stop button for better UX */}
+                {/* {isRecording && (
+                    <button
+                        onClick={handleStopRecording}
+                        className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 border border-[#FF6B6B] rounded-[17px] bg-red-500 text-white font-medium text-xs sm:text-sm hover:bg-red-600 transition-all duration-300 w-full sm:w-auto"
+                    >
+                        ⏹ Stop
+                    </button>
+                )} */}
+            </div>
 
             <style jsx>{`
                 @keyframes pulseWave {

@@ -22,13 +22,14 @@ const Header = () => {
 
             <div className="max-w-[1440px] mx-auto flex items-center justify-between px-[200px] pt-[16.56px] pb-[16.56px] gap-[12.42px]">
 
-                <div className="flex items-center -ml-15">
+                <div className="flex items-center -ml-15 cursor-pointer">
                     <Image
                         src="/navbar.png"
                         alt="EventHex Logo"
                         width={169.79}
                         height={35.05}
                         priority
+                        onClick={()=> router.push('/')}
                     />
                 </div>
 
@@ -39,13 +40,13 @@ const Header = () => {
                 </button>
 
             </div>
-            <button
-                onClick={handleLogout}
-                className="p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md group"
-                title="Logout"
-            >
-                <LogOut size={20} />
-            </button>
+            {/*<button*/}
+            {/*    onClick={handleLogout}*/}
+            {/*    className="p-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md group"*/}
+            {/*    title="Logout"*/}
+            {/*>*/}
+            {/*    <LogOut size={20} />*/}
+            {/*</button>*/}
         </header>
 
 
