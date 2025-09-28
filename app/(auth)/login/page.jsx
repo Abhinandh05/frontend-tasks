@@ -10,10 +10,16 @@ const manrope = Manrope({ subsets: ["latin"] });
 export default function Home() {
     const [avCode, setAvCode] = useState('');
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+        setError('');
+        
+        // Simulate loading time
+        await new Promise(resolve => setTimeout(resolve, 1500));
         
         if (avCode === '1234') {
             // Store authentication state in localStorage
@@ -23,6 +29,7 @@ export default function Home() {
             router.push('/');
         } else {
             setError('Invalid AV Code. Please try again.');
+            setIsLoading(false);
         }
     };
     return (
@@ -107,9 +114,21 @@ export default function Home() {
 
                         <button
                             type="submit"
-                            className="w-full bg-blue-100 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-base"
+                            disabled={isLoading}
+                            className={`w-full py-3 px-4 rounded-lg font-medium focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-base ${
+                                isLoading 
+                                    ? 'bg-blue-300 text-white cursor-not-allowed' 
+                                    : 'bg-blue-100 text-white hover:bg-blue-700'
+                            }`}
                         >
-                            Sign in
+                            {isLoading ? (
+                                <div className="flex items-center justify-center">
+                                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                                    Signing in...
+                                </div>
+                            ) : (
+                                'Sign in'
+                            )}
                         </button>
                     </form>
 
