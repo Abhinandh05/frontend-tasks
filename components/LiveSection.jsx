@@ -10,7 +10,7 @@ const LiveSection = () => {
     const [isSoundChecking, setIsSoundChecking] = useState(false);
     const [time, setTime] = useState(0);
 
-    // ⏱ Timer Logic
+
     useEffect(() => {
         let interval;
         if (isRecording) {
@@ -21,7 +21,7 @@ const LiveSection = () => {
         return () => clearInterval(interval);
     }, [isRecording]);
 
-    // Format timer (hh:mm:ss)
+
     const formatTime = (secs) => {
         const h = String(Math.floor(secs / 3600)).padStart(2, "0");
         const m = String(Math.floor((secs % 3600) / 60)).padStart(2, "0");
@@ -31,20 +31,20 @@ const LiveSection = () => {
 
     const handleSoundCheck = () => {
         setIsSoundChecking(true);
-        setIsRecording(false); // Stop recording if active
+        setIsRecording(false);
     };
 
     const handleGoLiveToggle = () => {
         if (isSoundChecking) {
-            // If sound checking, stop it and start recording
+
             setIsSoundChecking(false);
             setIsRecording(true);
         } else if (isRecording) {
-            // If recording, stop it and reset timer
+
             setIsRecording(false);
-            setTime(0); // Reset timer to 00:00:00
+            setTime(0);
         } else {
-            // If neither, start recording
+
             setIsRecording(true);
         }
     };
@@ -52,7 +52,7 @@ const LiveSection = () => {
     return (
         <div className="w-full flex flex-col items-center">
             <div className="w-full h-[450px] relative flex flex-col items-center justify-center bg-gradient-to-r from-[#C2D6FF] to-white rounded-3xl border border-[#E2E4E9] overflow-hidden">
-                {/* Wave Background Images */}
+
                 {waveVectors.map((src, index) => (
                     <div
                         key={index}
@@ -69,7 +69,7 @@ const LiveSection = () => {
                     </div>
                 ))}
 
-                {/* Center Circle Logo */}
+
                 <div className="w-36 h-36 rounded-full bg-[#FFFFFF80] flex items-center justify-center z-10">
                     <div className="w-28 h-28 rounded-full bg-[#EFECFF] flex items-center justify-center">
                         <div className="w-20 h-20 relative">
@@ -83,7 +83,7 @@ const LiveSection = () => {
                     </div>
                 </div>
 
-                {/* Sound Check Text Display */}
+
                 {isSoundChecking && (
                     <div className="absolute z-20 flex items-center justify-center w-[602px] h-[38px] left-1/2 -translate-x-1/2 transform bottom-16">
                         <div className="w-full h-full flex items-center justify-start rounded-lg px-4">
@@ -94,7 +94,7 @@ const LiveSection = () => {
                     </div>
                 )}
 
-                {/* Timer + Recording Indicator - Hidden during sound checking */}
+
                 {!isSoundChecking && (
                     <div className="absolute bottom-5 z-10 flex items-center gap-3">
                         {isRecording && (
@@ -108,7 +108,7 @@ const LiveSection = () => {
                 )}
             </div>
 
-            {/* Buttons */}
+
             <div className="mt-6 flex flex-row gap-4">
                 <button className="flex items-center justify-center gap-2 px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-gray-200 text-blue-100 font-medium text-sm hover:bg-blue-50">
                     ✖ Leave Section
@@ -131,7 +131,7 @@ const LiveSection = () => {
                 </button>
             </div>
 
-            {/* Animations */}
+
             <style jsx>{`
                 @keyframes pulseWave {
                     0% {
