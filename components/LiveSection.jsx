@@ -48,11 +48,6 @@ const LiveSection = () => {
         }
     };
 
-    const handleStopRecording = () => {
-        setIsRecording(false);
-        setIsPaused(false);
-        setTime(0);
-    };
 
     return (
         <div className="w-full flex flex-col items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
@@ -174,15 +169,7 @@ const LiveSection = () => {
                 </button>
 
                 {/* Optional Stop Button - Uncomment if needed */}
-                {isRecording && (
-                    <button
-                        onClick={handleStopRecording}
-                        className="flex items-center justify-center gap-1 xs:gap-2 px-3 xs:px-4 sm:px-5 md:px-6 py-2 xs:py-2.5 sm:py-3 border border-[#FF6B6B] rounded-xl xs:rounded-2xl bg-red-500 text-white font-medium text-xs xs:text-sm sm:text-base md:text-lg hover:bg-red-600 transition-all duration-300 w-full xs:w-auto xs:min-w-[100px] sm:min-w-[120px] md:min-w-[140px]"
-                    >
-                        <span className="text-xs xs:text-sm sm:text-base md:text-lg">⏹</span>
-                        <span className="whitespace-nowrap">Stop</span>
-                    </button>
-                )}
+
             </div>
 
             <style jsx>{`
