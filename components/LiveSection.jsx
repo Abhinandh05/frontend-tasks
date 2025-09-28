@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
 import { PiWaveformBold } from "react-icons/pi";
-import { IoPlaySharp, IoPauseSharp } from "react-icons/io5";
+import { IoPlaySharp } from "react-icons/io5";
 import { waveVectors } from "@/constants";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import {BsRecord2} from "react-icons/bs";
 
 const LiveSection = () => {
     const [isRecording, setIsRecording] = useState(false);
@@ -147,12 +148,12 @@ const LiveSection = () => {
                 >
                     {isSoundChecking ? (
                         <>
-                            <IoPauseSharp className="text-sm xs:text-base sm:text-lg md:text-xl" />
-                            <span className="whitespace-nowrap">Stop Check</span>
+                            <BsRecord2  className="text-sm xs:text-base sm:text-lg md:text-xl" />
+                            <span className="whitespace-nowrap">Pause</span>
                         </>
                     ) : isRecording && !isPaused ? (
                         <>
-                            <IoPauseSharp className="text-sm xs:text-base sm:text-lg md:text-xl" />
+                            <BsRecord2 className="text-sm xs:text-base sm:text-lg md:text-xl" />
                             <span className="whitespace-nowrap">Pause</span>
                         </>
                     ) : isRecording && isPaused ? (
