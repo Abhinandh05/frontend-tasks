@@ -10,7 +10,7 @@ export const HeroSection = () => {
     const handleSearchToggle = () => {
         setIsSearchOpen(!isSearchOpen);
         if (isSearchOpen) {
-            setSearchValue(''); // Clear search when closing
+            setSearchValue('');
         }
     };
 
