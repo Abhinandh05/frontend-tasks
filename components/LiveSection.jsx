@@ -40,7 +40,7 @@ const LiveSection = () => {
 
     const handleGoLiveToggle = () => {
         if (isSoundChecking) {
-            // If sound checking, stop sound check
+
             setIsSoundChecking(false);
         } else if (isRecording) {
             // If recording, toggle pause state
@@ -79,7 +79,7 @@ const LiveSection = () => {
                     </div>
                 ))}
 
-                {/* Center Avatar - Responsive sizing */}
+
                 <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full bg-[#FFFFFF80] flex items-center justify-center z-10">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-26 md:h-26 lg:w-28 lg:h-28 rounded-full bg-[#EFECFF] flex items-center justify-center">
                         <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 relative">
@@ -93,7 +93,7 @@ const LiveSection = () => {
                     </div>
                 </div>
 
-                {/* Sound Check Text - Responsive positioning and sizing */}
+
                 {isSoundChecking && (
                     <div className="absolute z-20 flex items-center justify-center w-[90%] sm:w-[80%] md:w-[70%] lg:w-[602px] h-[38px] left-1/2 -translate-x-1/2 transform bottom-8 sm:bottom-12 md:bottom-14 lg:bottom-16">
                         <div className="w-full h-full flex items-center justify-start rounded-lg px-2 sm:px-3 md:px-4">
@@ -104,7 +104,7 @@ const LiveSection = () => {
                     </div>
                 )}
 
-                {/* Recording Status and Timer - Responsive positioning */}
+
                 {!isSoundChecking && (
                     <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 z-10 flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
                         {isRecording && !isPaused && (
@@ -124,7 +124,7 @@ const LiveSection = () => {
                 )}
             </div>
 
-            {/* Control Buttons - Responsive layout and sizing */}
+
             <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
                 <button className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 border border-[#C2D6FF] rounded-[17px] bg-gray-200 text-blue-100 font-medium text-xs sm:text-sm hover:bg-blue-50 w-full sm:w-auto"
                         onClick={() => router.push('/')}

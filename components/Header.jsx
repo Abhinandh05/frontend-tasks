@@ -9,7 +9,7 @@ const Header = () => {
     useEffect(() => {
         const loggedIn = localStorage.getItem("loggedIn");
         if (loggedIn !== "true") {
-            router.push("/login"); // redirect if not logged in
+            router.push("/login");
         }
     }, [router]);
 
@@ -17,12 +17,13 @@ const Header = () => {
         localStorage.removeItem("loggedIn");
         router.push("/login");
     };
+
     return (
         <header className="w-full border-b-[1.04px] border-gray-200">
+            <div className="max-w-[1440px] mx-auto flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-24 xl:px-[200px] pt-[16.56px] pb-[16.56px] gap-[12.42px]">
 
-            <div className="max-w-[1440px] mx-auto flex items-center justify-between px-[200px] pt-[16.56px] pb-[16.56px] gap-[12.42px]">
 
-                <div className="flex items-center -ml-15 cursor-pointer">
+                <div className="flex items-center -ml-2 sm:-ml-4 md:-ml-8 lg:-ml-12 xl:-ml-15 cursor-pointer">
                     <Image
                         src="/navbar.png"
                         alt="EventHex Logo"
@@ -30,13 +31,13 @@ const Header = () => {
                         height={35.05}
                         priority
                         onClick={()=> router.push('/')}
+                        className="w-20 h-auto sm:w-24 md:w-32 lg:w-40 xl:w-[169.79px] xl:h-[35.05px]"
                     />
                 </div>
 
 
-
-                <button className="text-gray-600 hover:text-gray-900 cursor-pointer">
-                    <Globe className="w-5 h-5" />
+                <button className="text-gray-600 hover:text-gray-900 cursor-pointer p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
 
             </div>
@@ -48,8 +49,6 @@ const Header = () => {
             {/*    <LogOut size={20} />*/}
             {/*</button>*/}
         </header>
-
-
     )
 }
 export default Header

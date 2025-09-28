@@ -25,7 +25,7 @@ export const HeroSection = () => {
 
     return (
         <div className="mx-auto w-full max-w-[1064px] space-y-4 sm:space-y-6 -mt-6 sm:-mt-8 md:-mt-10 px-4 sm:px-6 lg:px-0">
-            {/* Desktop & Tablet Layout */}
+
             <div className="hidden sm:flex justify-between items-start h-12">
                 <div className="flex-1 max-w-[871px] space-y-[4px] pr-4">
                     <h1 className="text-[16px] sm:text-[18px] leading-[22px] sm:leading-[24px] font-semibold text-gray-900 font-inter">
@@ -37,7 +37,7 @@ export const HeroSection = () => {
                 </div>
 
                 <div className="flex items-center gap-[8px] sm:gap-[12px] h-[32px] flex-shrink-0">
-                    {/* Search Section */}
+
                     <div className="flex items-center">
                         <button
                             onClick={handleSearchToggle}
@@ -76,7 +76,7 @@ export const HeroSection = () => {
                         </div>
                     </div>
 
-                    {/* Filter/Sort Section */}
+
                     <div className="flex h-[32px] rounded-md overflow-hidden border border-gray-300 bg-white shadow-sm min-w-[120px] sm:min-w-[160px]">
                         <button className="flex items-center gap-[2px] sm:gap-[4px] px-[6px] sm:px-[10px] py-[4px] text-[12px] sm:text-[14px] leading-[18px] sm:leading-[20px] font-normal tracking-[-0.006em] text-gray-700 font-inter hover:bg-gray-50 whitespace-nowrap cursor-pointer">
                             <MdFilterList className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -91,9 +91,9 @@ export const HeroSection = () => {
                 </div>
             </div>
 
-            {/* Mobile Layout */}
+
             <div className="sm:hidden space-y-4">
-                {/* Header Section */}
+
                 <div className="space-y-2">
                     <h1 className="text-[18px] leading-[24px] font-semibold text-gray-900 font-inter">
                         Assigned Sessions
@@ -103,7 +103,7 @@ export const HeroSection = () => {
                     </p>
                 </div>
 
-                {/* Search Bar - Full Width on Mobile */}
+
                 <div className="flex items-center w-full h-[40px] border border-gray-300 rounded-[8px] bg-white shadow-sm">
                     <div className="flex items-center justify-center w-[40px] h-full border-r border-gray-200">
                         <Search className="w-4 h-4 text-gray-600" />
@@ -127,7 +127,7 @@ export const HeroSection = () => {
                     )}
                 </div>
 
-                {/* Filter/Sort Section - Full Width on Mobile */}
+
                 <div className="flex gap-3">
                     <button className="flex items-center justify-center gap-2 flex-1 h-[40px] border border-gray-300 rounded-[8px] bg-white shadow-sm text-[14px] leading-[20px] font-normal tracking-[-0.006em] text-gray-700 font-inter hover:bg-gray-50 cursor-pointer">
                         <MdFilterList className="w-4 h-4" />

@@ -10,7 +10,7 @@ export default function SessionTable() {
     return (
         <div className="flex justify-center items-center p-4 sm:p-6 md:p-8">
             <div className="w-full max-w-[1080px] border border-[#E2E4E9] rounded-2xl bg-white mx-auto pb-[17px] overflow-hidden">
-                {/* Desktop Table View */}
+
                 <div className="hidden md:block">
                     <table className="w-full border-collapse">
                         <thead>
@@ -33,7 +33,7 @@ export default function SessionTable() {
                                 key={session.id}
                                 className="border-t border-[#E2E4E9] text-sm h-[76px]"
                             >
-                                {/* Session Info */}
+
                                 <td className="py-4 pl-6 pr-4">
                                     <div className="flex items-center gap-3">
                                         <Image
@@ -52,10 +52,10 @@ export default function SessionTable() {
                                     </div>
                                 </td>
 
-                                {/* Event */}
+
                                 <td className="py-4 px-4 text-gray-700">{session.eventName}</td>
 
-                                {/* Status */}
+
                                 <td className="py-4 px-4">
                                     {session.status === "Pending" ? (
                                         <span className="bg-[#F17B2C]/20 text-[#F17B2C] px-3 py-1 rounded-full text-xs font-medium inline-flex items-center gap-x-2">
@@ -70,7 +70,7 @@ export default function SessionTable() {
                                     )}
                                 </td>
 
-                                {/* Action */}
+
                                 <td className="py-4 pr-6 pl-4 flex justify-end mr-3">
                                     {session.status === "Pending" ? (
                                         <Link href={`/sessions/${session.id}`}>
@@ -92,23 +92,23 @@ export default function SessionTable() {
                     </table>
                 </div>
 
-                {/* Mobile Card View */}
+
                 <div className="md:hidden">
-                    {/* Header */}
+
                     <div className="bg-nutral-100 p-4 rounded-t-2xl">
                         <h2 className="text-gray-100 font-normal text-sm leading-5 tracking-[-0.006em]">
                             Sessions
                         </h2>
                     </div>
 
-                    {/* Cards */}
+
                     <div className="divide-y divide-[#E2E4E9]">
                         {sessions.map((session) => (
                             <div
                                 key={session.id}
                                 className="p-4 space-y-3"
                             >
-                                {/* Session Info */}
+
                                 <div className="flex items-center gap-3">
                                     <Image
                                         src={session.image}
@@ -125,13 +125,13 @@ export default function SessionTable() {
                                     </div>
                                 </div>
 
-                                {/* Event Name */}
+
                                 <div className="pl-1">
                                     <p className="text-xs text-gray-100 mb-1">Event Name</p>
                                     <p className="text-gray-700 text-sm">{session.eventName}</p>
                                 </div>
 
-                                {/* Status and Action */}
+
                                 <div className="flex items-center justify-between pt-2">
                                     {session.status === "Pending" ? (
                                         <span className="bg-[#F17B2C]/20 text-[#F17B2C] px-3 py-1 rounded-full text-xs font-medium inline-flex items-center gap-x-2">
@@ -164,9 +164,9 @@ export default function SessionTable() {
                     </div>
                 </div>
 
-                {/* Tablet View (sm to md) */}
+
                 <div className="hidden sm:block md:hidden">
-                    {/* Header */}
+
                     <div className="bg-nutral-100 px-6 py-4 rounded-t-2xl">
                         <div className="grid grid-cols-3 gap-4 text-gray-100 font-normal text-sm leading-5 tracking-[-0.006em]">
                             <span>Session</span>
@@ -175,14 +175,14 @@ export default function SessionTable() {
                         </div>
                     </div>
 
-                    {/* Rows */}
+
                     <div className="divide-y divide-[#E2E4E9]">
                         {sessions.map((session) => (
                             <div
                                 key={session.id}
                                 className="px-6 py-4 grid grid-cols-3 gap-4 items-center min-h-[76px]"
                             >
-                                {/* Session Info */}
+
                                 <div className="flex items-center gap-3">
                                     <Image
                                         src={session.image}
@@ -199,7 +199,7 @@ export default function SessionTable() {
                                     </div>
                                 </div>
 
-                                {/* Event and Status */}
+
                                 <div className="space-y-2">
                                     <p className="text-gray-700 text-sm truncate">{session.eventName}</p>
                                     {session.status === "Pending" ? (
@@ -215,7 +215,7 @@ export default function SessionTable() {
                                     )}
                                 </div>
 
-                                {/* Action */}
+
                                 <div className="flex justify-end">
                                     {session.status === "Pending" ? (
                                         <Link href={`/sessions/${session.id}`}>

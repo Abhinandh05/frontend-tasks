@@ -18,20 +18,20 @@ export default function Home() {
         setIsLoading(true);
         setError('');
 
-        // Simulate loading time
+
         await new Promise(resolve => setTimeout(resolve, 1500));
 
         if (avCode === '1234') {
-            // Store authentication state in localStorage
+
             localStorage.setItem('loggedIn', 'true');
             localStorage.setItem('userCode', avCode);
 
-            // Show success toast
+
             if (typeof window !== 'undefined' && window.showToast) {
                 window.showToast('Login Successful!', 'success', 2000);
             }
 
-            // Wait a moment to show toast, then redirect
+
             setTimeout(() => {
                 router.push('/');
             }, 1500);
@@ -43,11 +43,11 @@ export default function Home() {
 
     return (
         <div className="min-h-screen w-full">
-            {/* Mobile & Tablet Layout */}
+
             <div className="lg:hidden">
-                {/* Promotional Section - Top */}
+
                 <div className="relative h-screen w-full">
-                    {/* Background Image */}
+
                     <div className="absolute inset-0">
                         <Image
                             src="/main.png"
@@ -58,9 +58,9 @@ export default function Home() {
                         />
                     </div>
 
-                    {/* Content Overlay */}
+
                     <div className="relative z-10 flex flex-col justify-center items-center px-6 py-8 text-white h-full">
-                        {/* Logo */}
+
                         <div className="mb-8">
                             <Image
                                 src='/EventHex-Logo.svg'
@@ -71,7 +71,7 @@ export default function Home() {
                             />
                         </div>
 
-                        {/* Headline */}
+
                         <div className="mb-6 text-center">
                             <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold leading-tight ${manrope.className}`}>
                                 <span className="block">Engage, Inspire</span>
@@ -79,13 +79,13 @@ export default function Home() {
                             </h2>
                         </div>
 
-                        {/* Sub-headline */}
+
                         <p className={`text-lg sm:text-xl md:text-2xl text-white text-center leading-relaxed ${manrope.className}`}>
                             AI-Based Real-Time<br />
                             Content Summarisation
                         </p>
 
-                        {/* Scroll indicator */}
+
                         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
                             <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
                                 <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
@@ -94,10 +94,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Login Form Section - Bottom */}
+
                 <div className="min-h-screen w-full bg-white flex items-center justify-center px-6 py-8">
                     <div className="w-full max-w-md">
-                        {/* Title */}
+
                         <div className="mb-8 text-center">
                             <h3 className="text-2xl sm:text-3xl font-bold text-black-900 mb-4">
                                 Enter AV Code 🎧
@@ -107,7 +107,7 @@ export default function Home() {
                             </p>
                         </div>
 
-                        {/* Form */}
+
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label
@@ -149,7 +149,7 @@ export default function Home() {
                             </button>
                         </form>
 
-                        {/* Footer */}
+
                         <p className="text-center text-gray-500 text-sm mt-8">
                             Secure access portal
                         </p>
@@ -157,11 +157,10 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* Desktop Layout */}
+
             <div className="hidden lg:flex min-h-screen">
-                {/* Left Column - Promotional Section */}
+
                 <div className="w-1/2 relative">
-                    {/* Background Image */}
                     <div className="absolute inset-0">
                         <Image
                             src="/main.png"
@@ -172,9 +171,9 @@ export default function Home() {
                         />
                     </div>
 
-                    {/* Content */}
+
                     <div className="relative z-10 flex flex-col justify-center p-12 text-white h-full -mt-30">
-                        {/* Logo */}
+
                         <div className="mb-8">
                             <div className="flex items-center justify-start">
                                 <div className="rounded-full flex items-center justify-center mr-3">
@@ -189,7 +188,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* Headline */}
+
                         <div className="mb-6 text-left -mt-20">
                             <h2 className={`text-[62px] font-bold leading-tight ${manrope.className}`}>
                                 <span>Engage, Inspire</span>
@@ -197,7 +196,7 @@ export default function Home() {
                             </h2>
                         </div>
 
-                        {/* Sub-headline */}
+
                         <p className={`text-[51px] text-white text-left ${manrope.className}`}>
                             AI-Based Real-Time<br />
                             Content Summarisation
@@ -205,10 +204,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Right Column - Login Form */}
+
                 <div className="w-1/2 flex items-center justify-center p-8 bg-white">
                     <div className="w-full max-w-md flex flex-col">
-                        {/* Title */}
+
                         <div className="mb-8">
                             <div className="flex items-center mb-2 justify-start">
                                 <h3 className="text-[28px] font-bold text-black-900 text-left">
@@ -221,7 +220,7 @@ export default function Home() {
                             </p>
                         </div>
 
-                        {/* Form */}
+
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label
@@ -263,7 +262,7 @@ export default function Home() {
                             </button>
                         </form>
 
-                        {/* Footer */}
+
                         <p className="text-center text-gray-500 text-sm mt-40">
                             Secure access portal
                         </p>
