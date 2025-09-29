@@ -39,18 +39,26 @@ const Page = async ({ params }) => {
                                    justify-between items-start sm:items-center">
 
                         {/* Title and Date - Mobile First */}
-                        <div className="flex flex-col gap-1 xs:gap-1.5 sm:gap-2 flex-1 min-w-0">
-                            <h1 className="font-medium text-black-100
-                                         text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl
-                                         leading-tight break-words hyphens-auto">
+                        <div
+                            className="flex flex-col gap-1 xs:gap-1.5 sm:gap-2 flex-1 min-w-0
+             -mt-[50px] ml-[130px]"
+                        >
+                            <h1
+                                className="font-medium text-black-100
+               text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-xl
+               leading-tight break-words hyphens-auto"
+                            >
                                 {session.title}
                             </h1>
-                            <p className="text-gray-100
-                                         text-xs xs:text-sm sm:text-sm md:text-base
-                                         opacity-80">
+                            <p
+                                className="text-gray-100
+               text-xs xs:text-sm sm:text-sm md:text-base
+               opacity-80"
+                            >
                                 {session.date}
                             </p>
                         </div>
+
 
                         {/* Language Selector - Responsive Positioning */}
                         <div className="flex-shrink-0 w-full xs:w-auto sm:w-auto">

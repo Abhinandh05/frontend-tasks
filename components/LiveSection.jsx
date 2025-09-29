@@ -53,7 +53,7 @@ const LiveSection = () => {
     return (
         <div className="w-full flex flex-col items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
             {/* Main Wave Container - Fully Responsive */}
-            <div className="w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl h-[250px] xs:h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[450px] 2xl:h-[500px] relative flex flex-col items-center justify-center bg-gradient-to-r from-[#C2D6FF] to-white rounded-2xl sm:rounded-3xl border border-[#E2E4E9] overflow-hidden">
+            <div className="w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-4xl h-[250px] xs:h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[420px] 2xl:h-[450px] relative flex flex-col items-center justify-center bg-gradient-to-r from-[#C2E4FF] to-white rounded-2xl sm:rounded-3xl border border-[#E2E4E9] overflow-hidden">
 
                 {/* Wave Animation Layers */}
                 {waveVectors.map((src, index) => (
@@ -122,55 +122,52 @@ const LiveSection = () => {
             </div>
 
             {/* Control Buttons - Fully Responsive */}
-            <div className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 lg:mt-8 flex flex-col xs:flex-row gap-2 xs:gap-3 sm:gap-4 md:gap-5 w-full xs:w-auto max-w-full">
+            <div className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 lg:mt-8 ml-150 flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-3 w-full">
                 {/* Leave Section Button */}
                 <button
-                    className="flex items-center justify-center gap-1 xs:gap-2 px-3 xs:px-4 sm:px-5 md:px-6 py-2 xs:py-2.5 sm:py-3 border border-[#C2D6FF] rounded-xl xs:rounded-2xl bg-gray-200 text-blue-100 font-medium text-xs xs:text-sm sm:text-base md:text-lg hover:bg-blue-50 transition-all duration-300 w-full xs:w-auto xs:min-w-[120px] sm:min-w-[140px] md:min-w-[160px]"
+                    className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-5 lg:px-4 py-2 sm:py-2.5 md:py-3 lg:py-2 border border-[#C2D6FF] rounded-xl sm:rounded-2xl bg-gray-200 text-blue-100 font-medium text-xs sm:text-sm md:text-base lg:text-sm hover:bg-blue-50 transition-all duration-300 w-full sm:w-auto min-w-[100px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[120px]"
                     onClick={() => router.push('/')}
                 >
-                    <span className="text-xs xs:text-sm sm:text-base">✖</span>
+                    <span className="text-xs sm:text-sm md:text-base lg:text-sm">✖</span>
                     <span className="whitespace-nowrap">Leave Section</span>
                 </button>
 
                 {/* Sound Check Button */}
                 <button
                     onClick={handleSoundCheck}
-                    className="flex items-center justify-center gap-1 xs:gap-2 px-3 xs:px-4 sm:px-5 md:px-6 py-2 xs:py-2.5 sm:py-3 border border-[#C2D6FF] rounded-xl xs:rounded-2xl bg-blue-100 text-white font-medium text-xs xs:text-sm sm:text-base md:text-lg hover:bg-blue-500 transition-all duration-300 w-full xs:w-auto xs:min-w-[120px] sm:min-w-[140px] md:min-w-[160px]"
+                    className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-5 lg:px-4 py-2 sm:py-2.5 md:py-3 lg:py-2 border border-[#C2D6FF] rounded-xl sm:rounded-2xl bg-blue-100 text-white font-medium text-xs sm:text-sm md:text-base lg:text-sm hover:bg-blue-500 transition-all duration-300 w-full sm:w-auto min-w-[120px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[130px]"
                 >
-                    <PiWaveformBold className="text-sm xs:text-base sm:text-lg md:text-xl" />
+                    <PiWaveformBold className="text-sm sm:text-base md:text-lg lg:text-base" />
                     <span className="whitespace-nowrap">Sound Check</span>
                 </button>
 
-                {/* Main Action Button (Go Live/Pause/Resume) */}
+                {/* Main Action Button */}
                 <button
                     onClick={handleGoLiveToggle}
-                    className="flex items-center justify-center gap-1 xs:gap-2 px-3 xs:px-4 sm:px-5 md:px-6 py-2 xs:py-2.5 sm:py-3 border border-[#C2D6FF] rounded-xl xs:rounded-2xl font-medium text-xs xs:text-sm sm:text-base md:text-lg min-w-[100px] xs:min-w-[120px] sm:min-w-[140px] md:min-w-[160px] transition-all duration-300 bg-red-100 text-white hover:bg-red-500 w-full xs:w-auto"
+                    className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-5 lg:px-4 py-2 sm:py-2.5 md:py-3 lg:py-2 border border-[#C2D6FF] rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base lg:text-sm min-w-[100px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[120px] transition-all duration-300 bg-red-100 text-white hover:bg-red-500 w-full sm:w-auto"
                 >
                     {isSoundChecking ? (
                         <>
-                            <BsRecord2  className="text-sm xs:text-base sm:text-lg md:text-xl" />
+                            <BsRecord2 className="text-sm sm:text-base md:text-lg lg:text-base" />
                             <span className="whitespace-nowrap">Pause</span>
                         </>
                     ) : isRecording && !isPaused ? (
                         <>
-                            <BsRecord2 className="text-sm xs:text-base sm:text-lg md:text-xl" />
+                            <BsRecord2 className="text-sm sm:text-base md:text-lg lg:text-base" />
                             <span className="whitespace-nowrap">Pause</span>
                         </>
                     ) : isRecording && isPaused ? (
                         <>
-                            <IoPlaySharp className="text-sm xs:text-base sm:text-lg md:text-xl" />
+                            <IoPlaySharp className="text-sm sm:text-base md:text-lg lg:text-base" />
                             <span className="whitespace-nowrap">Resume</span>
                         </>
                     ) : (
                         <>
-                            <IoPlaySharp className="text-sm xs:text-base sm:text-lg md:text-xl" />
+                            <IoPlaySharp className="text-sm sm:text-base md:text-lg lg:text-base" />
                             <span className="whitespace-nowrap">Go Live</span>
                         </>
                     )}
                 </button>
-
-                {/* Optional Stop Button - Uncomment if needed */}
-
             </div>
 
             <style jsx>{`
