@@ -201,7 +201,7 @@ const LiveSection = () => {
 
                 .pulse-wave {
                     animation: pulseWave 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                    filter: blur(0.5px);
+                    transform-origin: center;
                 }
 
                 @keyframes wavyBlink {
@@ -234,21 +234,8 @@ const LiveSection = () => {
                 .blink {
                     animation: wavyBlink 1.8s ease-in-out infinite;
                 }
-
-                /* Custom responsive breakpoint styles */
-                @media (max-width: 374px) {
-                    .pulse-wave {
-                        animation: pulseWave 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                        transform-origin: center;
-                    }
-                }
-
-                @media (min-width: 1536px) {
-                    .pulse-wave {
-                        animation: pulseWave 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                    }
-                }
             `}</style>
+
         </div>
     );
 };
