@@ -122,7 +122,7 @@ const LiveSection = () => {
             </div>
 
             {/* Control Buttons - Fully Responsive */}
-            <div className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 lg:mt-8 ml-150 flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-3 w-full">
+            <div className="mt-3 sm:mt-5 lg:mt-8 mx-4 sm:mx-6 lg:mx-auto lg:max-w-6xl flex flex-col sm:flex-row flex-wrap justify-center gap-3 lg:gap-4 w-full">
                 {/* Leave Section Button */}
                 <button
                     className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-5 lg:px-4 py-2 sm:py-2.5 md:py-3 lg:py-2 border border-[#C2D6FF] rounded-xl sm:rounded-2xl bg-gray-200 text-blue-100 font-medium text-xs sm:text-sm md:text-base lg:text-sm hover:bg-blue-50 transition-all duration-300 w-full sm:w-auto min-w-[100px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[120px]"
